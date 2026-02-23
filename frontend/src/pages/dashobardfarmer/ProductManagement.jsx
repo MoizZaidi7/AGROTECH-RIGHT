@@ -21,6 +21,7 @@ const ProductManagement = () => {
   const [isEditingProduct, setIsEditingProduct] = useState(false);
   const [currentProductId, setCurrentProductId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
 
   const productCategories = [
