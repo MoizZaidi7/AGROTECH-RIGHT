@@ -11,7 +11,6 @@ const ChatbotWidget = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isComplaintMode, setIsComplaintMode] = useState(false);
-  const [isNewWindow, setIsNewWindow] = useState(false);
   const [showComplaintForm, setShowComplaintForm] = useState(false);
   const [complaintDetails, setComplaintDetails] = useState({
     name: "",
@@ -38,7 +37,6 @@ const ChatbotWidget = () => {
   const openChatbotWindow = () => {
     if (!chatWindowRef.current || chatWindowRef.current.closed) {
       chatWindowRef.current = window.open("/chatbot", "Chatbot", "width=400,height=600");
-      setIsNewWindow(true);
     } else {
       chatWindowRef.current.focus();
     }

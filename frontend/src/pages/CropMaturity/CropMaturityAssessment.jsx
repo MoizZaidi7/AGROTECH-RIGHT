@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaLeaf, FaCalendarAlt, FaMapMarkerAlt, FaUpload, FaInfoCircle } from 'react-icons/fa';
+import { FaLeaf, FaUpload, FaInfoCircle } from 'react-icons/fa';
 import axios from 'axios';
 
 const CropMaturityAssessment = () => {

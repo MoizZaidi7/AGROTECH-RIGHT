@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, switchProfile } from "../Redux/authslice";
 import axiosInstance from "../utils/axiosConfig";
-import axios from 'axios';
 
 const DashHeader = () => {
   const dispatch = useDispatch();
@@ -12,40 +11,18 @@ const DashHeader = () => {
   const { user } = useSelector((state) => state.auth);
   const inactivityTimer = useRef(null);
   const profileMenuRef = useRef(null);
-  const [isTranslated, setIsTranslated] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [headerTexts, setHeaderTexts] = useState({
+  
+  const headerTexts = {
     home: "Home",
     marketplace: "Marketplace",
     support: "Support",
     logout: "Logout",
     logoText: "AgroTech",
     logoSubtext: "Cultivating Smarter Futures"
-  });
+  };
 
   const INACTIVITY_LIMIT = 4 * 60 * 1000; // 2 minutes
-
-  const handleTranslate = async () => {
-    try {
-      const textsToTranslate = {
-        home: "Home",
-        marketplace: "Marketplace",
-        support: "Support",
-        logout: "Logout",
-        logoText: "AgroTech",
-        logoSubtext: "Cultivating Smarter Futures"
-      };
-
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/translate`, {
-        texts: textsToTranslate,
-      });
-      
-      setHeaderTexts(res.data.translated);
-      setIsTranslated(!isTranslated);
-    } catch (err) {
-      console.error("Translation error:", err);
-    }
-  };
 
   const handleLogout = async () => {
     try {
@@ -86,6 +63,7 @@ const DashHeader = () => {
       events.forEach((event) => window.removeEventListener(event, resetInactivityTimer));
       if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Close profile menu when clicking outside

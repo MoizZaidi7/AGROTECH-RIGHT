@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.jsx";
-import PublicRoute from "./components/PublicRoute.jsx";
 import { trackPageView } from "./utils/pageTracking.js";
 
 

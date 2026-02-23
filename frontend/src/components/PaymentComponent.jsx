@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
-import { FaMoneyBillWave, FaTimes, FaCheck } from 'react-icons/fa';
+import { FaMoneyBillWave, FaTimes } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const PaymentComponent = ({ 
