@@ -28,7 +28,7 @@ const ForgotPassword = () => {
   return (
     <div>
     {/* Favicon */}
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" href={`${process.env.PUBLIC_URL}/logo.png`} />
 
     {/* Background Video */}
     <div className="absolute inset-0 w-full h-full">
@@ -39,7 +39,7 @@ const ForgotPassword = () => {
         muted
         playsInline
       >
-        <source src="/backvideo.mp4" type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
@@ -53,7 +53,7 @@ const ForgotPassword = () => {
     >
       {/* Logo */}
       <img
-        src="/logo.png"
+        src={`${process.env.PUBLIC_URL}/logo.png`}
         alt="Logo"
         className="h-12 w-12 bg-opacity-70 rounded-full border-2 border-white"
       />

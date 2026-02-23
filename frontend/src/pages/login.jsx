@@ -135,7 +135,7 @@ const Login = () => {
       {/* Background Video */}
       <div className="fixed inset-0 w-full h-full z-0">
         <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-          <source src="/backvideo.mp4" type="video/mp4" />
+          <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

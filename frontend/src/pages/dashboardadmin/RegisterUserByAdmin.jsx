@@ -47,7 +47,7 @@ const RegisterUserByAdmin = () => {
           muted
           playsInline
         >
-          <source src="/backvideo.mp4" type="video/mp4" />
+          <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -67,7 +67,7 @@ const RegisterUserByAdmin = () => {
           transition={{ duration: 1 }}
         >
           <img
-            src="/logo.png"
+            src={`${process.env.PUBLIC_URL}/logo.png`}
             alt="Logo"
             className="h-10 w-10 bg-opacity-70 rounded-full border-2 border-white"
           />

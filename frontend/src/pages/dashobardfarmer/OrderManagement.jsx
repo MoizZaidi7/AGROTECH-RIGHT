@@ -116,7 +116,7 @@ const OrderManagement = () => {
                         <div className="flex-shrink-0 h-12 w-12">
                           <img 
                             className="h-12 w-12 rounded-xl object-cover border-2 border-green-200" 
-                            src={order.productId?.images?.[0] || '/placeholder-product.png'} 
+                            src={order.productId?.images?.[0] || `${process.env.PUBLIC_URL}/placeholder-product.png`} 
                             alt={order.productId?.name || 'Product'} 
                           />
                         </div>

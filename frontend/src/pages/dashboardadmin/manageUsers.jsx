@@ -88,7 +88,7 @@ const ManageUsers = () => {
           muted
           playsInline
         >
-          <source src="/backvideo.mp4" type="video/mp4" />
+          <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

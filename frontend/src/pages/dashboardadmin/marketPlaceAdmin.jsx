@@ -1244,7 +1244,7 @@ const MarketPlaceAdmin = () => {
               transition={{ duration: 1 }}
             >
               <img
-                src="/logo.png"
+                src={`${process.env.PUBLIC_URL}/logo.png`}
                 alt="Logo"
                 className="h-10 w-10 bg-opacity-70 rounded-full border-2 border-green-700"
               />

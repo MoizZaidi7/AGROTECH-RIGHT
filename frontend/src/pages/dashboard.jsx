@@ -57,7 +57,7 @@ const DashboardPage = () => {
           muted
           playsInline
         >
-          <source src="backvideo.mp4" type="video/mp4" />
+          <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -72,7 +72,7 @@ const DashboardPage = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/logo.png"
+            src={`${process.env.PUBLIC_URL}/logo.png`}
             alt="Logo"
             className="h-10 w-10 rounded-full border-2 border-white"
           />
@@ -156,7 +156,7 @@ const DashboardPage = () => {
             className="bg-white p-6 rounded-lg shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
           >
-            <ImageSlider images={["crops1.jpg", "crops2.jpg", "crops3.jpg"]} />
+            <ImageSlider images={[`${process.env.PUBLIC_URL}/crops1.jpg`, `${process.env.PUBLIC_URL}/crops2.jpg`, `${process.env.PUBLIC_URL}/crops3.jpg`]} />
             <h3 className="text-xl font-semibold text-green-700 mt-4">
               Crop Monitoring
             </h3>
@@ -171,7 +171,7 @@ const DashboardPage = () => {
             whileHover={{ scale: 1.05 }}
           >
             <ImageSlider
-              images={["marketplace1.jpg", "marketplace2.jpg", "marketplace3.jpg"]}
+              images={[`${process.env.PUBLIC_URL}/marketplace1.jpg`, `${process.env.PUBLIC_URL}/marketplace2.jpg`, `${process.env.PUBLIC_URL}/marketplace3.jpg`]}
             />
             <h3 className="text-xl font-semibold text-green-700 mt-4">
               Marketplace
@@ -186,7 +186,7 @@ const DashboardPage = () => {
             className="bg-white p-6 rounded-lg shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
           >
-            <ImageSlider images={["support.jpg"]} />
+            <ImageSlider images={[`${process.env.PUBLIC_URL}/support.jpg`]} />
             <h3 className="text-xl font-semibold text-green-700 mt-4">Support</h3>
             <p className="text-gray-600 mt-2">
               Access expert advice and troubleshooting resources.
@@ -203,21 +203,21 @@ const DashboardPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              image: "wheat.jpg",
+              image: `${process.env.PUBLIC_URL}/wheat.jpg`,
               title: "Wheat",
               description: "High-quality wheat for sale.",
               customer: "Mian Tayyab",
               price: "$50",
             },
             {
-              image: "fertilizer.jpg",
+              image: `${process.env.PUBLIC_URL}/fertilizer.jpg`,
               title: "Fertilizers",
               description: "Organic fertilizers for better yields.",
               customer: "Hamad Gul",
               price: "$45",
             },
             {
-              image: "Urea.jpg",
+              image: `${process.env.PUBLIC_URL}/Urea.jpg`,
               title: "Urea",
               description: "Premium urea for farming.",
               customer: "Basit",

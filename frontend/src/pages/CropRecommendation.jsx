@@ -131,7 +131,7 @@
 //     <div className="relative min-h-screen bg-white">
 //       <div className="absolute inset-0 w-full h-full">
 //         <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-//           <source src="/backvideo.mp4" type="video/mp4" />
+//           <source src={`${process.env.PUBLIC_URL}/backvideo.mp4`} type="video/mp4" />
 //           Your browser does not support the video tag.
 //         </video>
 //       </div>
