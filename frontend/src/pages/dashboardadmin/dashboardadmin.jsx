@@ -12,7 +12,6 @@ import {
   FaTools,
   FaSearch,
   FaBell,
-  FaEnvelope,
   FaCog,
   FaSignOutAlt,
   FaEdit,
@@ -51,7 +50,6 @@ const DashAdmin = () => {
   const [updateError, setUpdateError] = useState('');
 
   // Reports States
-  const [reportType, setReportType] = useState("user-engagement");
   const [selectedReportType, setSelectedReportType] = useState("All");
   const [reports, setReports] = useState({
     userEngagement: [],
@@ -99,10 +97,11 @@ const DashAdmin = () => {
           "Web Analytics": "web-analytics",
           "Sales and Revenue": "sales-report",
         };
-        const endpoint = reportEndpoints[selectedReportType] || reportType;
+        const endpoint = reportEndpoints[selectedReportType] || "user-engagement";
         fetchReportByType(endpoint);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSection]);
 
   // Add this useEffect for real-time updates

@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaTractor, FaTools, FaCheck, FaTimes, FaInfoCircle } from 'react-icons/fa';
+import { FaTools, FaInfoCircle } from 'react-icons/fa';
 import axiosInstance from '../../utils/axiosConfig';
 
 const Requests = () => {
   const [equipmentList, setEquipmentList] = useState([]);
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [selectedEquipment, setSelectedEquipment] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filters, setFilters] = useState({
     status: '',
     search: ''
   });
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState('');
 
   // Fetch equipment

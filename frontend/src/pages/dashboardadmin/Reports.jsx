@@ -121,7 +121,6 @@ const ReportsPage = () => {
         const { 
           totalUsers = 0, 
           activeUsers = 0, 
-          loggedInUsers = 0, 
           newUsers = 0,
           engagementRate = 0,
           retentionRate = 0,
@@ -286,8 +285,6 @@ const ReportsPage = () => {
         const { 
           totalVisits = 0, 
           uniqueVisitors = 0,
-          maxVisitedPage = '', 
-          averageSessionDuration = '', 
           visitTrends = [],
           bounceRate = 0,
           conversionRate = 0,
