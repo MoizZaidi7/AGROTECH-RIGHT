@@ -14,7 +14,7 @@ const BidsPage = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/marketplace/bids', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/marketplace/bids`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -42,7 +42,7 @@ const BidsPage = () => {
   const handleAcceptBid = async (bidId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/marketplace/bids/${bidId}/accept`, {}, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/bids/${bidId}/accept`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -58,7 +58,7 @@ const BidsPage = () => {
   const handleRejectBid = async (bidId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/marketplace/bids/${bidId}/reject`, {}, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/bids/${bidId}/reject`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }

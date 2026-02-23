@@ -21,7 +21,7 @@ const RegisterUserByAdmin = () => {
     const userData = { username, email, password, userType };
 
     try {
-      const response = await axiosInstance.post('http://localhost:5000/api/admin/registerUser', userData, {
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/admin/registerUser`, userData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 

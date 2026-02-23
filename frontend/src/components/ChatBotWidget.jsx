@@ -90,7 +90,7 @@ const ChatbotWidget = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/complaints/create", // Replace with your backend URL
+        `${process.env.REACT_APP_API_URL}/api/users/complaints/create`, // Replace with your backend URL
         complaintDetails,
         {
           headers: {
@@ -119,7 +119,7 @@ const ChatbotWidget = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/users/complaints", // Replace with your backend URL
+        `${process.env.REACT_APP_API_URL}/api/users/complaints`, // Replace with your backend URL
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -19,7 +19,7 @@ const Requests = () => {
     const fetchEquipmentrequest = async () => {
   try {
     setLoading(true);
-    const response = await axiosInstance.get('http://localhost:5000/api/admin/equipment/requests', {
+    const response = await axiosInstance.get(`${process.env.REACT_APP_API_URL}/api/admin/equipment/requests`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
 

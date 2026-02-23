@@ -24,7 +24,7 @@ const HarvestSchedule = () => {
   const fetchSchedules = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/harvest/schedules', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/schedules`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSchedules(response.data.schedules);
@@ -39,7 +39,7 @@ const HarvestSchedule = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/farmer/harvest/schedule', newSchedule, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/schedule`, newSchedule, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSchedules([...schedules, response.data]);
@@ -76,7 +76,7 @@ const HarvestSchedule = () => {
     try {
       setLoading(true);
       const response = await axios.patch(
-        `http://localhost:5000/api/farmer/harvest/schedule/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/farmer/harvest/schedule/${id}`,
         editData,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -97,7 +97,7 @@ const HarvestSchedule = () => {
     
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:5000/api/farmer/harvest/schedule/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/schedule/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSchedules(schedules.filter(s => s._id !== id));

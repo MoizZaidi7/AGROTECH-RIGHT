@@ -16,7 +16,7 @@ const HarvestRecommendations = () => {
       setError('');
       
       const response = await axios.get(
-        'http://localhost:5000/api/farmer/harvest/recommendations',
+        `${process.env.REACT_APP_API_URL}/api/farmer/harvest/recommendations`,
         {
           params: { cropType }, // Send as query parameter
           headers: { 

@@ -15,7 +15,7 @@ const OrderManagement = () => {
   const fetchFarmerOrders = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/farmer/orders/farmer-orders', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/orders/farmer-orders`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setOrders(response.data || []);
@@ -29,7 +29,7 @@ const OrderManagement = () => {
 
   const updateOrderStatus = async (orderId, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/marketplace/orders/${orderId}`, { status }, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/orders/${orderId}`, { status }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setOrders(orders.map(order => 

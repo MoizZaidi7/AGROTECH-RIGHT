@@ -36,7 +36,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axiosInstance.post("http://localhost:5000/api/users/login", {
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/users/login`, {
         email,
         password,
         rememberMe,
@@ -93,7 +93,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      const response = await axiosInstance.post("http://localhost:5000/api/users/google-login", {
+      const response = await axiosInstance.post(`${process.env.REACT_APP_API_URL}/api/users/google-login`, {
         email: user.email,
         name: user.displayName,
         profilePicture: user.photoURL,

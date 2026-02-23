@@ -25,7 +25,7 @@ import { FiActivity } from 'react-icons/fi';
 
 Chart.register(...registerables);
 
-const socket = io('http://localhost:5000');
+const socket = io(process.env.REACT_APP_API_URL || 'http://localhost:5000');
 
 const ReportsPage = () => {
   const navigate = useNavigate();

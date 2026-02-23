@@ -87,7 +87,7 @@ const StorageAssist = () => {
   const fetchStorageFacilities = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/storage/facilities', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/storage/facilities`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       
@@ -114,7 +114,7 @@ const StorageAssist = () => {
   const fetchTrainingModules = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/training/modules', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/training/modules`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTrainingModules(response.data.modules || []);
@@ -128,7 +128,7 @@ const StorageAssist = () => {
   const fetchStorageGuidelines = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/storage/guidelines', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/storage/guidelines`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setStorageGuidelines(response.data.guidelines || []);
@@ -202,7 +202,7 @@ const StorageAssist = () => {
       const days = calculateDays(reservationDates.startDate, reservationDates.endDate);
       const amount = selectedFacility.price * days * (Number(reservationCapacity) / 1000); // Assuming price is per ton
       
-      const response = await axios.post('http://localhost:5000/api/farmer/payment/storage', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/payment/storage`, {
         facilityId: selectedFacility._id,
         days,
         amount,
@@ -229,7 +229,7 @@ const StorageAssist = () => {
   const handlePaymentSuccess = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/farmer/storage/reserve', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/storage/reserve`, {
         facilityId: selectedFacility._id,
         startDate: reservationDates.startDate,
         endDate: reservationDates.endDate,
@@ -286,7 +286,7 @@ const StorageAssist = () => {
     formData.append('moistureContent', cropAssessment.moistureContent);
 
     const response = await axios.post(
-      'http://localhost:5000/api/farmer/cropquality',
+      `${process.env.REACT_APP_API_URL}/api/farmer/cropquality`,
       formData,
       {
         headers: {

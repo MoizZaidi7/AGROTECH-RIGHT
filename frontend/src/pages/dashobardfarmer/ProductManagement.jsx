@@ -40,7 +40,7 @@ const ProductManagement = () => {
 
   const fetchFarmerProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/farmer/products/my-products', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/products/my-products`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setProducts(response.data);
@@ -77,7 +77,7 @@ const ProductManagement = () => {
     });
 
     try {
-      const response = await axios.post('http://localhost:5000/api/farmer/products', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/products`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -112,7 +112,7 @@ const ProductManagement = () => {
     });
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/farmer/products/${currentProductId}`, formData, {
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/farmer/products/${currentProductId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -131,7 +131,7 @@ const ProductManagement = () => {
   const handleDeleteProduct = async (productId) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/farmer/products/${productId}`, {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/farmer/products/${productId}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setProducts(products.filter(p => p._id !== productId));

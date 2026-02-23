@@ -44,7 +44,7 @@ const HarvestEquipment = () => {
   const fetchEquipment = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/harvest/equipment', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/equipment`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setEquipment(response.data.equipment);
@@ -59,7 +59,7 @@ const HarvestEquipment = () => {
 
   const fetchSchedules = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/farmer/harvest/schedules', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/schedules`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSchedules(response.data.schedules || []);
@@ -129,7 +129,7 @@ const HarvestEquipment = () => {
         amount
       });
       
-      const response = await axios.post('http://localhost:5000/api/farmer/payment/equipment', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/payment/equipment`, {
         equipmentId: selectedEquipment._id,
         days,
         amount
@@ -157,7 +157,7 @@ const HarvestEquipment = () => {
   const handlePaymentSuccess = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/farmer/harvest/equipment/request', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/harvest/equipment/request`, {
         equipmentId: selectedEquipment._id,
         startDate: requestDates.startDate,
         endDate: requestDates.endDate,

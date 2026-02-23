@@ -57,7 +57,7 @@ const CropMaturityAssessment = () => {
       formDataToSend.append('location', formData.location);
       formDataToSend.append('season', formData.season);
 
-      const response = await axios.post('http://localhost:5000/api/farmer/cropmaturity', formDataToSend, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/cropmaturity`, formDataToSend, {
   headers: {
     'Content-Type': 'multipart/form-data',
     Authorization: `Bearer ${localStorage.getItem('token')}`  // Only send one auth token

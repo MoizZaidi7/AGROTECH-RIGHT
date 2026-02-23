@@ -33,7 +33,7 @@ const PaymentComponent = ({
 
         // Create payment intent
         const response = await axios.post(
-          'http://localhost:5000/api/marketplace/payment',
+          `${process.env.REACT_APP_API_URL}/api/marketplace/payment`,
           { orderId, amount: orderTotal },
           { 
             headers: { 
@@ -119,7 +119,7 @@ const PaymentComponent = ({
   const verifyPaymentWithBackend = async (paymentIntentId) => {
     try {
       const verificationResponse = await axios.post(
-        'http://localhost:5000/api/marketplace/payment/confirm',
+        `${process.env.REACT_APP_API_URL}/api/marketplace/payment/confirm`,
         {
           paymentIntentId,
           orderId,

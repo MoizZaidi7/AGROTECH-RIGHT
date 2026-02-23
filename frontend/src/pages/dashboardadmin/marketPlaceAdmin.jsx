@@ -74,7 +74,7 @@ const MarketPlaceAdmin = () => {
       if (filters.minPrice) params.minPrice = filters.minPrice;
       if (filters.maxPrice) params.maxPrice = filters.maxPrice;
       
-      const response = await axios.get('http://localhost:5000/api/marketplace/products', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/marketplace/products`, {
         params,
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -98,7 +98,7 @@ const MarketPlaceAdmin = () => {
       setError('');
       const token = localStorage.getItem('token');
       
-      const response = await axios.get('http://localhost:5000/api/admin/orders', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/orders`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -121,7 +121,7 @@ const MarketPlaceAdmin = () => {
       setError('');
       const token = localStorage.getItem('token');
       
-      const response = await axios.get('http://localhost:5000/api/admin/bids/my-bids', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/bids/my-bids`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -144,7 +144,7 @@ const MarketPlaceAdmin = () => {
       setError('');
       const token = localStorage.getItem('token');
       
-      const response = await axios.get('http://localhost:5000/api/admin/bids/my-bids', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/bids/my-bids`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -165,7 +165,7 @@ const MarketPlaceAdmin = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      await axios.put(`http://localhost:5000/api/admin/bids/${bidId}/win`, {}, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/admin/bids/${bidId}/win`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -192,7 +192,7 @@ const MarketPlaceAdmin = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      await axios.delete(`http://localhost:5000/api/admin/bids/${bidId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/bids/${bidId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -319,7 +319,7 @@ const MarketPlaceAdmin = () => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://localhost:5000/api/admin/products/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/products/${productId}`,
         editData,
         {
           headers: {
@@ -345,7 +345,7 @@ const MarketPlaceAdmin = () => {
     
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:5000/api/admin/products/${productId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/products/${productId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       
@@ -363,7 +363,7 @@ const MarketPlaceAdmin = () => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://localhost:5000/api/marketplace/orders/${orderId}`,
+        `${process.env.REACT_APP_API_URL}/api/marketplace/orders/${orderId}`,
         { status: newStatus },
         {
           headers: {

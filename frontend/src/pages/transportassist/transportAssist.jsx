@@ -52,7 +52,7 @@ const TransportAssist = () => {
   const fetchTransportOptions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/farmer/transport/options', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/transport/options`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       
@@ -80,7 +80,7 @@ const TransportAssist = () => {
 
   const fetchPackagingMaterials = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/farmer/transport/packaging', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/transport/packaging`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setPackagingMaterials(response.data.materials || []);
@@ -92,7 +92,7 @@ const TransportAssist = () => {
 
   const fetchTransportGuidelines = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/farmer/transport/guidelines', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/farmer/transport/guidelines`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTransportGuidelines(response.data.guidelines || []);
@@ -142,7 +142,7 @@ const TransportAssist = () => {
       setLoading(true);
       
       // First calculate route to get distance
-      const routeResponse = await axios.post('http://localhost:5000/api/farmer/transport/route', {
+      const routeResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/transport/route`, {
         pickup: transportDetails.pickupLocation,
         delivery: transportDetails.deliveryLocation
       }, {
@@ -152,7 +152,7 @@ const TransportAssist = () => {
       const distance = routeResponse.data.route.distance;
       const amount = calculateTransportCost(distance, selectedOption.price);
       
-      const paymentResponse = await axios.post('http://localhost:5000/api/farmer/payment/transport', {
+      const paymentResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/payment/transport`, {
         transportId: selectedOption._id,
         distance,
         amount
@@ -176,7 +176,7 @@ const TransportAssist = () => {
   const handlePaymentSuccess = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/farmer/transport/request', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/transport/request`, {
         optionId: selectedOption._id,
         ...transportDetails
       }, {
@@ -214,7 +214,7 @@ const TransportAssist = () => {
     
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/farmer/transport/route', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/farmer/transport/route`, {
         pickup: transportDetails.pickupLocation,
         delivery: transportDetails.deliveryLocation
       }, {

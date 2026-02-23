@@ -19,7 +19,7 @@ const OrdersTab = ({
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/marketplace/orders/customer-orders', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/marketplace/orders/customer-orders`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -87,7 +87,7 @@ const OrdersTab = ({
   const handleUpdateStatus = async (orderId, newStatus) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/marketplace/orders/${orderId}`, 
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/orders/${orderId}`, 
         { status: newStatus }, 
         {
           headers: {

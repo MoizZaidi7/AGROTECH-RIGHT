@@ -12,7 +12,7 @@ const ManageUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axiosInstance.get('http://localhost:5000/api/admin/users', {
+        const response = await axiosInstance.get(`${process.env.REACT_APP_API_URL}/api/admin/users`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setUsers(response.data.users);
@@ -26,7 +26,7 @@ const ManageUsers = () => {
   // Delete User
   const handleDeleteUser = async (userId) => {
     try {
-      const response = await axiosInstance.delete(`http://localhost:5000/api/admin/users/${userId}`, {
+      const response = await axiosInstance.delete(`${process.env.REACT_APP_API_URL}/api/admin/users/${userId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 
@@ -55,7 +55,7 @@ const ManageUsers = () => {
 
     try {
       const response = await axiosInstance.put(
-        `http://localhost:5000/api/admin/users/${selectedUser._id}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/users/${selectedUser._id}`,
         selectedUser,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

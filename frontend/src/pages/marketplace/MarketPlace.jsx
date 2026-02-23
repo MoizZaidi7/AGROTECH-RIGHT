@@ -86,14 +86,14 @@ const MarketPlace = () => {
 
       // Fetch products (if needed to be authenticated)
       const productsResponse = await axios.get(
-        'http://localhost:5000/api/marketplace/products',
+        `${process.env.REACT_APP_API_URL}/api/marketplace/products`,
         { headers }
       );
       setProducts(Array.isArray(productsResponse.data) ? productsResponse.data : []);
 
       // Fetch orders 
       const ordersResponse = await axios.get(
-        'http://localhost:5000/api/marketplace/orders/customer-orders',
+        `${process.env.REACT_APP_API_URL}/api/marketplace/orders/customer-orders`,
         { headers }
       );
       console.log('Orders Response:', ordersResponse.data);
@@ -103,7 +103,7 @@ const MarketPlace = () => {
 
       // Fetch bids
       const bidsResponse = await axios.get(
-        'http://localhost:5000/api/marketplace/bids',
+        `${process.env.REACT_APP_API_URL}/api/marketplace/bids`,
         { headers }
       );
       console.log('Bids Response:', bidsResponse.data);
@@ -195,8 +195,8 @@ const MarketPlace = () => {
     try {
       // Add these inside the handleSaveProduct function
       const endpoint = isEditingProduct 
-        ? `http://localhost:5000/api/marketplace/products/${selectedProduct._id}`
-        : 'http://localhost:5000/api/marketplace/products';
+        ? `${process.env.REACT_APP_API_URL}/api/marketplace/products/${selectedProduct._id}`
+        : `${process.env.REACT_APP_API_URL}/api/marketplace/products`;
 
       const method = isEditingProduct ? 'put' : 'post';
 
@@ -235,7 +235,7 @@ const MarketPlace = () => {
   const handlePlaceBid = async (productId) => {
     try {
       setLoading(true);
-        const response = await axios.post('http://localhost:5000/api/marketplace/bids', {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/bids`, {
         productId: selectedProductForBid._id,
         amount: parseFloat(bidAmount)
       }, {
@@ -253,7 +253,7 @@ const MarketPlace = () => {
   const handleAcceptBid = async (bidId) => {
     try {
       setLoading(true);
-      await axios.put(`http://localhost:5000/api/marketplace/bids/${bidId}/accept`, {}, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/bids/${bidId}/accept`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       console.log('Accepting bid:', bidId);
@@ -267,7 +267,7 @@ const MarketPlace = () => {
   const handleRejectBid = async (bidId) => {
     try {
       setLoading(true);
-      await axios.put(`http://localhost:5000/api/marketplace/bids/${bidId}/reject`, {}, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/marketplace/bids/${bidId}/reject`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });      
       console.log('Rejecting bid:', bidId);
@@ -281,7 +281,7 @@ const MarketPlace = () => {
   const handleCreateOrderFromBid = async (bidId) => {
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/marketplace/orders', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/orders`, {
         productId: selectedProduct._id,
         quantity: orderQuantity,
         shippingDetails: {
@@ -316,7 +316,7 @@ const MarketPlace = () => {
     };
 
     // 2. Send order request to backend
-    const response = await axios.post('http://localhost:5000/api/marketplace/orders', payload, {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/orders`, payload, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
 
@@ -400,7 +400,7 @@ const MarketPlace = () => {
 
     // Create order
     const { data } = await axios.post(
-      'http://localhost:5000/api/marketplace/orders/cart-checkout',
+      `${process.env.REACT_APP_API_URL}/api/marketplace/orders/cart-checkout`,
       payload,
       { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
     );
@@ -438,7 +438,7 @@ const MarketPlace = () => {
     try {
       // Verify payment with backend
       await axios.put(
-        `http://localhost:5000/api/marketplace/orders/${selectedOrderForPayment._id}/confirm-payment`,
+        `${process.env.REACT_APP_API_URL}/api/marketplace/orders/${selectedOrderForPayment._id}/confirm-payment`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
