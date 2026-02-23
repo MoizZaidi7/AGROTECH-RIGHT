@@ -1,0 +1,13 @@
+/* Make the scrollbar invisible but keep it functional */
+.invisible-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  
+  .invisible-scrollbar {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .invisible-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari */
+  }
