@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBook, FaSearch, FaBoxOpen, FaTemperatureLow, FaClock, FaTools, FaExclamationTriangle } from 'react-icons/fa';
+import { FaBook, FaSearch, FaBoxOpen, FaTemperatureLow, FaTools, FaExclamationTriangle } from 'react-icons/fa';
 import axios from 'axios';
 
 const HarvestHandlingGuide = () => {

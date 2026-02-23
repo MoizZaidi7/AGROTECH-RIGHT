@@ -39,6 +39,7 @@ const HarvestEquipment = () => {
 
   useEffect(() => {
     filterEquipment();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [equipment, filters]);
 
   const fetchEquipment = async () => {

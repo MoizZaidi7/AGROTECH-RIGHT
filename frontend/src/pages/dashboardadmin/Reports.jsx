@@ -60,6 +60,7 @@ const ReportsPage = () => {
   // Fetch data when report type or time range changes
   useEffect(() => {
     fetchReport(selectedReportType);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedReportType, timeRange]);
 
   const fetchReport = async (type) => {

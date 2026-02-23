@@ -16,7 +16,6 @@ import {
   FaBan,
   FaUser,
   FaBox,
-  FaMoneyBillWave,
   FaTrophy
 } from 'react-icons/fa';
 
@@ -221,6 +220,7 @@ const MarketPlaceAdmin = () => {
     } else if (activeTab === 'bids') {
       fetchBids();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   // Apply client-side filters for products
