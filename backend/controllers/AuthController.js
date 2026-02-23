@@ -2,9 +2,9 @@ import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import { validatePassword } from '../utils/validatePassword.js';
 import { generateOTP } from '../utils/otpGenerator.js';
-import { hashOTP } from '../utils/hashotp.js';
+import { hashOTP } from '../utils/hashOTP.js';
 import generateToken from '../utils/generateToken.js';
-import { sendEmail  } from '../utils/sendEmail.js';
+import { sendEmail  } from '../utils/sendemail.js';
 import { generateWelcomeEmail, generateOtpEmail } from '../utils/emailTemplates.js';
 
 const registerUser = async (req, res) => {

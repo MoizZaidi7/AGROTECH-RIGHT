@@ -1,6 +1,6 @@
 // 📁 services/notificationService.js
 import Notification from '../models/Notification.js'
-import { sendEmail } from './sendEmail.js';
+import { sendEmail } from './sendemail.js';
 
 const sendNotification = async ({ userId, title, message, type = 'general', read = false, email }) => {
   try {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaFilter, FaSearch, FaBox, FaStar, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaFilter, FaSearch, FaBox, FaStar } from 'react-icons/fa';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import ProductCard from '../../components/ProductCard';
 
@@ -26,7 +26,6 @@ const ProductBrowser = ({
     minRating: 0
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const productsPerPage = 8;
 
   const productCategories = [

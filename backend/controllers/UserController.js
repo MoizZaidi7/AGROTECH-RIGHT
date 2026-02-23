@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
-import {sendEmail} from '../utils/sendEmail.js';
+import {sendEmail} from '../utils/sendemail.js';
 import crypto from 'crypto';
 import generatePasswordResetEmail from '../utils/emailTemplates.js';
 import Complaint from '../models/Complaint.js'; 

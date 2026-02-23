@@ -13,7 +13,7 @@ const OrdersTab = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [currentOrder, setCurrentOrder] = useState(null);
+  const [currentOrder] = useState(null);
 
   useEffect(() => {
     const fetchOrders = async () => {

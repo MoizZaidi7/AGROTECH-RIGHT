@@ -10,15 +10,9 @@ import {
   FaGavel, 
   FaShoppingCart,
   FaSearch,
-  FaBookmark,
-  FaFilter,
-  FaMoneyBillWave,
-  FaTimes,
   FaPlus,
   FaBell,
   FaUser,
-  FaCog,
-  FaBox,
   FaHome
 } from 'react-icons/fa';
 import axios from 'axios';
@@ -33,7 +27,6 @@ import OrdersTab from './OrdersTab';
 import ProductBrowser from './ProductBrowser.jsx'
 import ProductManagement from './ProductManagement.jsx';
 import PaymentComponent from '../../components/PaymentComponent.jsx';
-import ReviewList from './modalComponents/Reviewlist.jsx'; // Or the correct path
 
 
 const MarketPlace = () => {
@@ -52,7 +45,6 @@ const MarketPlace = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

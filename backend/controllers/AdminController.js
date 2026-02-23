@@ -1,7 +1,7 @@
 import Complaint from '../models/Complaint.js';
 import Report from '../models/Reports.js';
 import User from '../models/User.js';
-import { sendEmail } from '../utils/sendEmail.js';
+import { sendEmail } from '../utils/sendemail.js';
 import { generateWelcomeEmail } from '../utils/emailTemplates.js';
 import bcrypt from 'bcryptjs';
 
